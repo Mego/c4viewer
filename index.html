@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>c4viewer</title>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    $.get('https://gist.githubusercontent.com/turbo/189cde3a5a2847f5be73eab712dd4024/raw/44807377748236e514e4c9b2901489a1b1b2f5c4/c4.txt').done(
+      function(data) {
+        var ips = data.split(/\r?\n/);
+      }
+    );
+</script>
+</head>
+<body>
+<button id="randcam">New Camera</button>
+<br>
+<iframe id="cam" src=""></iframe>
+<script type="text/javascript">
+    $("#randcam").click(function() {
+      var ip = ips[Math.floor(Math.random() * ips.length)];
+      $("#cam").attr("src", ip);
+    });
+</script>
+</body>
+</html>
